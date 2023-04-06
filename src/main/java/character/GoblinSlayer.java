@@ -1,7 +1,10 @@
 package character;
 
+import GoblinSlayerModCore.GoblinSlayerCore;
 import basemod.abstracts.CustomPlayer;
 import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix;
+import cards.AbstractGoblinSlayerCard;
+import cards.Stricke_GoblinSlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -13,23 +16,27 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.events.city.Vampires;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class GoblinSlayer extends CustomPlayer {
 
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("GoblinSlayer");
     private static final String[] ORB_TEXTURES = new String[]{"ModResources/img/UI/orb/layer5.png", "ModResources/img/UI/orb/layer4.png", "ModResources/img/UI/orb/layer3.png", "ModResources/img/UI/orb/layer2.png", "ModResources/img/UI/orb/layer1.png", "ModResources/img/UI/orb/layer6.png", "ModResources/img/UI/orb/layer5d.png", "ModResources/img/UI/orb/layer4d.png", "ModResources/img/UI/orb/layer3d.png", "ModResources/img/UI/orb/layer2d.png", "ModResources/img/UI/orb/layer1d.png"};
+    private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
 
     /**
      * 2D小人/注册角色
      */
-    public GoblinSlayer() {
-        super(CardCrawlGame.languagePack.getCharacterString("GoblinSlayer").NAMES[0],
-                ConstEnum.GOBLINSLAYER,
-                ORB_TEXTURES, "ModResources/img/UI/orb/vfx.png", null, null, null);
+    public GoblinSlayer(String name) {
+        super(name, ConstEnum.GOBLINSLAYER, ORB_TEXTURES, "ModResources/img/UI/orb/vfx.png", LAYER_SPEED, null, null);
 
         this.dialogX = this.drawX + 0.0F * Settings.scale;
         this.dialogY = this.drawY + 150.0F * Settings.scale;
@@ -42,17 +49,22 @@ public class GoblinSlayer extends CustomPlayer {
 
     @Override
     public ArrayList<String> getStartingDeck() {
-        return null;
+        ArrayList<String> retVal = new ArrayList<>();
+        retVal.add("GoblinSlayer_Stricke");
+        return retVal;
     }
 
     @Override
     public ArrayList<String> getStartingRelics() {
-        return null;
+        ArrayList<String> retVal = new ArrayList<>();
+        retVal.add("Burning Blood");
+        return retVal;
     }
 
     @Override
     public CharSelectInfo getLoadout() {
-        return null;
+        return new CharSelectInfo(characterStrings.NAMES[0], characterStrings.TEXT[0], 40, 40, 0, 99, 5, this,
+                getStartingRelics(), getStartingDeck(), false);
     }
 
     @Override
@@ -62,22 +74,22 @@ public class GoblinSlayer extends CustomPlayer {
 
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return null;
+        return ConstEnum.GOBLINSLAYER_CARDCOLOR;
     }
 
     @Override
     public Color getCardRenderColor() {
-        return null;
+        return GoblinSlayerCore.GetCharColor();
     }
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return null;
+        return new Stricke_GoblinSlayer();
     }
 
     @Override
     public Color getCardTrailColor() {
-        return null;
+        return GoblinSlayerCore.GetCharColor();
     }
 
     @Override
@@ -87,7 +99,7 @@ public class GoblinSlayer extends CustomPlayer {
 
     @Override
     public BitmapFont getEnergyNumFont() {
-        return null;
+        return FontHelper.energyNumFontRed;
     }
 
     @Override
@@ -102,22 +114,22 @@ public class GoblinSlayer extends CustomPlayer {
 
     @Override
     public String getLocalizedCharacterName() {
-        return null;
+        return characterStrings.NAMES[0];
     }
 
     @Override
     public AbstractPlayer newInstance() {
-        return null;
+        return new GoblinSlayer(this.name);
     }
 
     @Override
     public String getSpireHeartText() {
-        return null;
+        return characterStrings.TEXT[1];
     }
 
     @Override
     public Color getSlashAttackColor() {
-        return null;
+        return GoblinSlayerCore.GetCharColor();
     }
 
     @Override
@@ -127,15 +139,15 @@ public class GoblinSlayer extends CustomPlayer {
 
     @Override
     public String getVampireText() {
-        return null;
+        return Vampires.DESCRIPTIONS[1];
     }
 
     public static class ConstEnum {
         @SpireEnum
-        public static PlayerClass GOBLINSLAYER;
-
-        @SpireEnum
+        public static AbstractPlayer.PlayerClass GOBLINSLAYER;
+        @SpireEnum(name = "GoblinSlayer")
         public static AbstractCard.CardColor GOBLINSLAYER_CARDCOLOR;
-
+        @SpireEnum(name = "GoblinSlayer")
+        public static CardLibrary.LibraryType GOBLINSLAYER_LibraryType;
     }
 }

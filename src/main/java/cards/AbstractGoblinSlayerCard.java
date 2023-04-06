@@ -12,6 +12,10 @@ import javafx.beans.property.ObjectProperty;
 
 public abstract class AbstractGoblinSlayerCard extends CustomCard {
 
+    public int baseSecondaryMagicNum;
+    public int SecondaryMagicNum;
+    public boolean upgradedSecondaryMagicNum;
+    public boolean isSecondaryMagicNumModified;
 
     public AbstractGoblinSlayerCard(String ID, String img, int COST, AbstractCard.CardType TYPE, AbstractCard.CardRarity RARITY, AbstractCard.CardTarget TARGET) {
         this(ID, img, CardCrawlGame.languagePack.getCardStrings(ID), COST, TYPE, RARITY, TARGET);
