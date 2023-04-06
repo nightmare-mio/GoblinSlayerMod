@@ -1,6 +1,7 @@
 package cards;
 
 import basemod.abstracts.CustomCard;
+import character.GoblinSlayer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.characters.TheSilent;
@@ -11,13 +12,12 @@ import javafx.beans.property.ObjectProperty;
 
 public abstract class AbstractGoblinSlayerCard extends CustomCard {
 
-    private static CardColor CARDCOLORl;
 
     public AbstractGoblinSlayerCard(String ID, String img, int COST, AbstractCard.CardType TYPE, AbstractCard.CardRarity RARITY, AbstractCard.CardTarget TARGET) {
-        this(ID, img, CardCrawlGame.languagePack.getCardStrings(ID), COST, TYPE, CARDCOLORl, RARITY, TARGET);
+        this(ID, img, CardCrawlGame.languagePack.getCardStrings(ID), COST, TYPE, RARITY, TARGET);
     }
 
-    private AbstractGoblinSlayerCard(String ID, String img, CardStrings strings, int COST, AbstractCard.CardType TYPE, CardColor CARDCOLOR, AbstractCard.CardRarity RARITY, AbstractCard.CardTarget TARGET) {
-        super(ID, strings.NAME, img, COST, strings.DESCRIPTION, TYPE, CARDCOLOR, RARITY, TARGET);
+    private AbstractGoblinSlayerCard(String ID, String img, CardStrings strings, int COST, AbstractCard.CardType TYPE, AbstractCard.CardRarity RARITY, AbstractCard.CardTarget TARGET) {
+        super(ID, strings.NAME, img, COST, strings.DESCRIPTION, TYPE, GoblinSlayer.ConstEnum.GOBLINSLAYER_CARDCOLOR, RARITY, TARGET);
     }
 }

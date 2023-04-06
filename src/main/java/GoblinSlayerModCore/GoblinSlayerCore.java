@@ -1,15 +1,22 @@
 package GoblinSlayerModCore;
 
 import basemod.BaseMod;
+import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.ISubscriber;
 import character.GoblinSlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import jdk.nashorn.internal.runtime.logging.Logger;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
 
 @SpireInitializer
-public class GoblinSlayerCore implements EditStringsSubscriber {
+@Log
+public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSubscriber {
 
 
     private static final Color SCARLET = GetCharColor();
@@ -34,8 +41,20 @@ public class GoblinSlayerCore implements EditStringsSubscriber {
     @Override
     public void receiveEditStrings() {
         String lang = "zh";
-
+        log.info("=====String 加载中====");
         BaseMod.loadCustomStringsFile(CardStrings.class, "ModResources/localization/Char_" + lang + ".json");
+        log.info("=====String 加载完成====");
+
+    }
+
+    /**
+     * 加载 角色
+     */
+    @Override
+    public void receiveEditCharacters() {
+        log.info("=====String 加载中====");
+        BaseMod.addCharacter(new GoblinSlayer(),"ModResources/img/char/GoblinSlayer_Button.png","ModResources/img/char/GoblinSlayer_Portrait.png",GoblinSlayer.ConstEnum.GOBLINSLAYER);
+        log.info("===人物加载完毕===");
     }
 
     /*
