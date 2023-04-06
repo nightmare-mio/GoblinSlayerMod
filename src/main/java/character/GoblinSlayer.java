@@ -1,8 +1,10 @@
 package character;
 
 import basemod.abstracts.CustomPlayer;
+import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -109,5 +111,10 @@ public class GoblinSlayer extends CustomPlayer {
     @Override
     public String getVampireText() {
         return null;
+    }
+
+    public static class ConstEnum {
+        @SpireEnum
+        public static AbstractCard.CardColor GOBLINSLAYER_CARDCOLOR;
     }
 }
