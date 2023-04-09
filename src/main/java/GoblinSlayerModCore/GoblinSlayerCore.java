@@ -11,6 +11,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import helpers.SecondaryMagicVariable;
@@ -52,6 +53,7 @@ public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSu
         log.info("=====String 加载中====");
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "ModResources/localization/Char_" + lang + ".json");
         BaseMod.loadCustomStringsFile(CardStrings.class, "ModResources/localization/Cards_" + lang + ".json");
+        BaseMod.loadCustomStringsFile(RelicStrings.class,"ModResources/localization/Relics_"+lang+".json");
         log.info("=====String 加载完成====");
 
     }

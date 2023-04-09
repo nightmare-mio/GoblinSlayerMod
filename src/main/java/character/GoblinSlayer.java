@@ -57,7 +57,7 @@ public class GoblinSlayer extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("Burning Blood");
+        retVal.add("GoblinSlayer_Dice");
         return retVal;
     }
 
