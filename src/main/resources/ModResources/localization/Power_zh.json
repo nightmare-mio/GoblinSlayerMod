@@ -1,0 +1,8 @@
+{
+  "Undeath": {
+    "NAME": "不死",
+    "DESCRIPTIONS": [
+      "血量不会低于1"
+    ]
+  }
+}

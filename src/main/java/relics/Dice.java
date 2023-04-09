@@ -8,10 +8,9 @@ import com.megacrit.cardcrawl.actions.defect.NewRipAndTearAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.sun.xml.internal.bind.v2.model.core.ID;
+import power.UndeathPower;
 
 import java.util.List;
 import java.util.Random;
@@ -28,21 +27,25 @@ public class Dice extends CustomRelic {
         flash();
         Random random = new Random();
         int number = random.nextInt(6);
-        addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 1), 1));
 
         switch (number) {
             case 0:
                 addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DexterityPower(AbstractDungeon.player, 1), 1));
                 break;
             case 1:
+                addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, 1), 1));
                 break;
             case 2:
+                addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ThornsPower(AbstractDungeon.player, 1), 1));
                 break;
             case 3:
+                addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MetallicizePower(AbstractDungeon.player, 1), 1));
                 break;
             case 4:
+                addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ArtifactPower(AbstractDungeon.player, 1), 1));
                 break;
             case 5:
+                addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new UndeathPower(AbstractDungeon.player, 1), 1));
                 break;
         }
     }

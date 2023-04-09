@@ -3,6 +3,7 @@ package GoblinSlayerModCore;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import cards.Stricke_GoblinSlayer;
 import character.GoblinSlayer;
@@ -11,6 +12,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -19,13 +21,14 @@ import jdk.nashorn.internal.runtime.logging.Logger;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 import org.apache.logging.log4j.LogManager;
+import relics.Dice;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @SpireInitializer
 @Log
-public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSubscriber, EditCardsSubscriber {
+public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSubscriber, EditCardsSubscriber,EditRelicsSubscriber {
 
 
     private static final Color SCARLET = GetCharColor();
@@ -45,7 +48,7 @@ public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSu
     }
 
     /*
-     * 加载 字符串\json\文本
+     * 加载 字符串\json\文本\能力
      * */
     @Override
     public void receiveEditStrings() {
@@ -54,6 +57,7 @@ public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSu
         BaseMod.loadCustomStringsFile(CharacterStrings.class, "ModResources/localization/Char_" + lang + ".json");
         BaseMod.loadCustomStringsFile(CardStrings.class, "ModResources/localization/Cards_" + lang + ".json");
         BaseMod.loadCustomStringsFile(RelicStrings.class,"ModResources/localization/Relics_"+lang+".json");
+        BaseMod.loadCustomStringsFile(PowerStrings.class,"ModResources/localization/Power_"+lang+".json");
         log.info("=====String 加载完成====");
 
     }
@@ -68,6 +72,9 @@ public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSu
         log.info("===人物加载完毕===");
     }
 
+    /**
+     * 加载 卡牌
+     */
     @Override
     public void receiveEditCards() {
         log.info("===receiveEditCards 加载中===");
@@ -81,6 +88,13 @@ public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSu
         }
     }
 
+    /**
+     * 加载 遗物
+     */
+    @Override
+    public void receiveEditRelics() {
+        BaseMod.addRelic(new Dice(), RelicType.PURPLE);
+    }
 
     /*
      *   rbg 0-255=0-1.0\透明度0-1.0
