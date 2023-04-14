@@ -2,10 +2,15 @@ package GoblinSlayerModCore;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
-import basemod.abstracts.DynamicVariable;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import cards.Stricke_GoblinSlayer;
+import cards.attack.ElbowStrike;
+import cards.attack.ShieldStrike;
+import cards.power.BeautyEmbrace;
+import cards.skill.Autotomy;
+import cards.skill.BloodShield;
+import cards.skill.Defence_GoblinSlayer;
+import cards.attack.Stricke_GoblinSlayer;
 import character.GoblinSlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -14,13 +19,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import helpers.SecondaryMagicVariable;
-import jdk.nashorn.internal.runtime.logging.Logger;
 import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j;
-import org.apache.logging.log4j.LogManager;
 import relics.Dice;
 
 import java.util.ArrayList;
@@ -81,6 +82,12 @@ public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSu
         BaseMod.addDynamicVariable( new SecondaryMagicVariable());
         List<CustomCard> cards = new ArrayList<>();
         cards.add(new Stricke_GoblinSlayer());
+        cards.add(new Defence_GoblinSlayer());
+        cards.add(new BloodShield());
+        cards.add(new Autotomy());
+        cards.add(new ElbowStrike());
+        cards.add(new BeautyEmbrace());
+        cards.add(new ShieldStrike());
 
         for (CustomCard card : cards){
             BaseMod.addCard(card);

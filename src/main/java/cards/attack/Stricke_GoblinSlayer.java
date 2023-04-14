@@ -1,5 +1,6 @@
-package cards;
+package cards.attack;
 
+import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -7,20 +8,21 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Stricke_GoblinSlayer extends AbstractGoblinSlayerCard{
+public class Stricke_GoblinSlayer extends AbstractGoblinSlayerCard {
 
     private static final String ID = "GoblinSlayer_Stricke";
 
+    // TODO: 2023/4/14 img要改
     public Stricke_GoblinSlayer() {
-        super(ID, "ModResources/img/card/Strike.png", 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
-        this.baseDamage = 5;
+        super(ID, "ModResources/img/card/Strike.png", 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
+        this.baseDamage = 6;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            upgradeDamage(3);
         }
     }
 

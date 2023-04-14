@@ -1,6 +1,34 @@
 {
   "GoblinSlayer_Stricke": {
     "NAME": "打击",
-    "DESCRIPTION": "造成!D!点伤害 TEST"
+    "DESCRIPTION": "造成!D!点伤害."
+  },
+  "GoblinSlayer_Defence": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点 格挡."
+  },
+  "BloodShield": {
+    "NAME": "血盾",
+    "DESCRIPTION": "失去 !M! 点生命. NL 获得 !B! 点 格挡."
+  },
+  "Autotomy": {
+    "NAME": "自残",
+    "DESCRIPTION": "失去 !M! 点生命. NL 获得 !M! 点 力量."
+  },
+  "ElbowStrike": {
+    "NAME": "肘击",
+    "DESCRIPTION": "造成 !M! 点伤害. NL 失去 !M! 点力量 1回合."
+  },
+  "BurningBlood": {
+    "NAME": "燃血",
+    "DESCRIPTION": "失去 2点生命. NL 抽取 !M! 张牌."
+  },
+  "BeautyEmbrace": {
+    "NAME": "美人拥",
+    "DESCRIPTION": "获取 !M! 层易伤. NL 获得 5层再生."
+  },
+  "ShieldStrike": {
+    "NAME": "盾击",
+    "DESCRIPTION": "获得 3点格挡 !M! 次. NL 造成 3点伤害 !M! 次."
   }
 }

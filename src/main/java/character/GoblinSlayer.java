@@ -2,9 +2,7 @@ package character;
 
 import GoblinSlayerModCore.GoblinSlayerCore;
 import basemod.abstracts.CustomPlayer;
-import basemod.patches.com.megacrit.cardcrawl.screens.mainMenu.ColorTabBar.ColorTabBarFix;
-import cards.AbstractGoblinSlayerCard;
-import cards.Stricke_GoblinSlayer;
+import cards.attack.Stricke_GoblinSlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -23,8 +21,6 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class GoblinSlayer extends CustomPlayer {
 
@@ -51,6 +47,20 @@ public class GoblinSlayer extends CustomPlayer {
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add("GoblinSlayer_Stricke");
+        retVal.add("GoblinSlayer_Stricke");
+        retVal.add("GoblinSlayer_Stricke");
+        retVal.add("GoblinSlayer_Stricke");
+        retVal.add("GoblinSlayer_Defence");
+        retVal.add("GoblinSlayer_Defence");
+        retVal.add("GoblinSlayer_Defence");
+        retVal.add("GoblinSlayer_Defence");
+        retVal.add("BloodShield");
+
+//        以下为测试
+        retVal.add("Autotomy");
+        retVal.add("ElbowStrike");
+
+
         return retVal;
     }
 
