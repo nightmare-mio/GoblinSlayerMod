@@ -2,7 +2,7 @@ package character;
 
 import GoblinSlayerModCore.GoblinSlayerCore;
 import basemod.abstracts.CustomPlayer;
-import cards.attack.Stricke_GoblinSlayer;
+import cards.attack.Strike_GoblinSlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -94,7 +94,7 @@ public class GoblinSlayer extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Stricke_GoblinSlayer();
+        return new Strike_GoblinSlayer();
     }
 
     @Override

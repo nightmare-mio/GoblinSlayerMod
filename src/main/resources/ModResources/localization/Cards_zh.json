@@ -1,5 +1,5 @@
 {
-  "GoblinSlayer_Stricke": {
+  "GoblinSlayer_Strike": {
     "NAME": "打击",
     "DESCRIPTION": "造成!D!点伤害."
   },
@@ -30,5 +30,47 @@
   "ShieldStrike": {
     "NAME": "盾击",
     "DESCRIPTION": "获得 3点格挡 !M! 次. NL 造成 3点伤害 !M! 次."
+  },
+  "StoneForce": {
+    "NAME": "以力击石",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 力量 在 以力击石 上发挥 !M! 倍效果. NL 力量归零."
+  },
+  "LockBlood": {
+    "NAME": "支援:锁血",
+    "DESCRIPTION": "获得 !M! 层不死. NL 50% 消耗"
+  },
+  "SleeveArrowPocket": {
+    "NAME": "袖箭袋",
+    "DESCRIPTION": "获得 !M! 张袖箭.",
+    "UPGRADE_DESCRIPTION": "固有. NL 获得 !M! 张袖箭."
+  },
+  "SleeveArrow": {
+    "NAME": "袖箭",
+    "DESCRIPTION": "保留. NL 造成 !D! 点伤害. NL 每保留一次伤害+!M!"
+  },
+  "LegendaryFigures": {
+    "NAME": "传说人物",
+    "DESCRIPTION": "获取 !M! 层力量. NL 获取 !M! 层灵敏. NL 获取 !M! 层自燃."
+  },
+  "BoneArmor": {
+    "NAME": "支援:骨铠 ",
+    "DESCRIPTION": "获得 !B! 点格挡.NL 50%消耗. NL 虚无"
+  },
+  "CutOff": {
+    "NAME": "卷轴：切断 ",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害.NL 给予所有敌人!M!层易伤和虚弱. NL 消耗."
+  },
+  "Spirit": {
+    "NAME": "支援：ELF",
+    "DESCRIPTION": "给予 !M! 层易伤. NL 造成 !D! 伤害. NL 50%消耗."
+  },
+  "DodgeCatapult": {
+    "NAME": "闪避投石",
+    "DESCRIPTION": "造成 !D! 点伤害. NL 获得 !M! 层灵敏. NL 消耗.",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害. NL 获得 !M! 层灵敏."
+  },
+  "PositionalWarfare": {
+    "NAME": "阵地战",
+    "DESCRIPTION": "所有人获得 !M! 层金属化.NL 场地."
   }
 }

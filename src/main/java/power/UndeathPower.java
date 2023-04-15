@@ -15,28 +15,21 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 /**
  * 不死
  */
-public class UndeathPower extends AbstractPower {
+public class UndeathPower extends AbstractGoblinSlayerPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("Undeath");
     private static final String NAME = powerStrings.NAME;
     private static final String sid = UndeathPower.class.getSimpleName();
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+
     public UndeathPower(AbstractCreature owner, int bufferAmt) {
+        super(owner,bufferAmt);
         this.name = NAME;
         this.ID = sid.replace("power","");
-        this.owner = owner;
-        this.amount = bufferAmt;
         this.type=PowerType.BUFF;
         isTurnBased = false;
-
         updateDescription();
-        Texture img84 = ImageMaster.loadImage(String.format("ModResources/img/power/%s84.png", sid));
-        Texture img32 = ImageMaster.loadImage(String.format("ModResources/img/power/%s32.png", sid));
-        if (img84 != null || img32 != null) {
-            this.region128 = new TextureAtlas.AtlasRegion(img84, 0, 0, 84, 84);
-            this.region48 = new TextureAtlas.AtlasRegion(img32, 0, 0, 32, 32);
-        }
-
+        loadShionRegion(sid);
     }
 
     @Override

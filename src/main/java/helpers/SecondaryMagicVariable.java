@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 public class SecondaryMagicVariable extends DynamicVariable {
     @Override
     public String key() {
-        return "KM2";
+        return "M2";
     }
 
     @Override

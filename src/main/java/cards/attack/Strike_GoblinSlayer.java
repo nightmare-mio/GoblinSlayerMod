@@ -8,12 +8,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Stricke_GoblinSlayer extends AbstractGoblinSlayerCard {
+public class Strike_GoblinSlayer extends AbstractGoblinSlayerCard {
 
-    private static final String ID = "GoblinSlayer_Stricke";
+    private static final String ID = "GoblinSlayer_Strike";
 
     // TODO: 2023/4/14 img要改
-    public Stricke_GoblinSlayer() {
+    public Strike_GoblinSlayer() {
         super(ID, "ModResources/img/card/Strike.png", 1, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         this.baseDamage = 6;
     }

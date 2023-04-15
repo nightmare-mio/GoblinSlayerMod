@@ -4,5 +4,14 @@
     "DESCRIPTIONS": [
       "血量不会低于1"
     ]
+  },
+  "PositionalWarfare": {
+    "NAME": "阵地战",
+    "DESCRIPTIONS": [
+      "在你的回合结束时获得 #b",
+      " 点 #y格挡 。",
+      "在其回合结束时获得 #b",
+      " 点 #y格挡 。"
+    ]
   }
 }

@@ -4,13 +4,10 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-import cards.attack.ElbowStrike;
-import cards.attack.ShieldStrike;
+import cards.attack.*;
 import cards.power.BeautyEmbrace;
-import cards.skill.Autotomy;
-import cards.skill.BloodShield;
-import cards.skill.Defence_GoblinSlayer;
-import cards.attack.Stricke_GoblinSlayer;
+import cards.power.PositionalWarfare;
+import cards.skill.*;
 import character.GoblinSlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
@@ -81,13 +78,23 @@ public class GoblinSlayerCore implements EditStringsSubscriber, EditCharactersSu
         log.info("===receiveEditCards 加载中===");
         BaseMod.addDynamicVariable( new SecondaryMagicVariable());
         List<CustomCard> cards = new ArrayList<>();
-        cards.add(new Stricke_GoblinSlayer());
+        cards.add(new Strike_GoblinSlayer());
         cards.add(new Defence_GoblinSlayer());
         cards.add(new BloodShield());
         cards.add(new Autotomy());
         cards.add(new ElbowStrike());
         cards.add(new BeautyEmbrace());
         cards.add(new ShieldStrike());
+        cards.add(new StoneForce());
+        cards.add(new LockBlood());
+        cards.add(new SleeveArrow());
+        cards.add(new SleeveArrowPocket());
+        cards.add(new BoneArmor());
+        cards.add(new CutOff());
+        cards.add(new Spirit());
+        cards.add(new DodgeCatapult());
+        cards.add(new PositionalWarfare());
+
 
         for (CustomCard card : cards){
             BaseMod.addCard(card);
