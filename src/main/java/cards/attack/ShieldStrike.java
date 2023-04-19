@@ -4,12 +4,13 @@ import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class ShieldStrike extends AbstractGoblinSlayerCard {
-    private static final String ID = "ShieldStrike";
+    public static final String ID = "ShieldStrike";
     private static final String img = "ModResources/img/card/Strike.png";
 
 
@@ -33,5 +34,9 @@ public class ShieldStrike extends AbstractGoblinSlayerCard {
             addToBot(new GainBlockAction(abstractPlayer, abstractPlayer, 3));
             addToBot(new DamageAction( abstractMonster, new DamageInfo(abstractPlayer, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new ShieldStrike();
     }
 }

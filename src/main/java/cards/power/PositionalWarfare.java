@@ -3,6 +3,7 @@ package cards.power;
 import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import power.PositionalWarfarePower;
 
 public class PositionalWarfare extends AbstractGoblinSlayerCard {
-    private static final String ID = "PositionalWarfare";
+    public static final String ID = "PositionalWarfare";
     private static final String img = "ModResources/img/card/Strike.png";
 
     public PositionalWarfare() {
@@ -34,5 +35,9 @@ public class PositionalWarfare extends AbstractGoblinSlayerCard {
                 addToBot((AbstractGameAction) new ApplyPowerAction((AbstractCreature) m, abstractPlayer ,new PositionalWarfarePower(abstractMonster, this.magicNumber)));
             }
         }
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new PositionalWarfare();
     }
 }

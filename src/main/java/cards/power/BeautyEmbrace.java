@@ -2,6 +2,7 @@ package cards.power;
 
 import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.RegenPower;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class BeautyEmbrace extends AbstractGoblinSlayerCard {
 
-    private static final String ID = "BeautyEmbrace";
+    public static final String ID = "BeautyEmbrace";
     private static final String img = "ModResources/img/card/Strike.png";
 
     public BeautyEmbrace() {
@@ -31,5 +32,9 @@ public class BeautyEmbrace extends AbstractGoblinSlayerCard {
         addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new RegenPower(abstractPlayer, 5), 5));
         addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new VulnerablePower(abstractPlayer, this.magicNumber, false), this.magicNumber));
 
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new BeautyEmbrace();
     }
 }

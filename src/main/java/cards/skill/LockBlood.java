@@ -2,12 +2,13 @@ package cards.skill;
 
 import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import power.UndeathPower;
 
 public class LockBlood extends AbstractGoblinSlayerCard {
-    private static final String ID = "LockBlood";
+    public static final String ID = "LockBlood";
     private static final String img = "ModResources/img/card/Strike.png";
 
 
@@ -30,5 +31,9 @@ public class LockBlood extends AbstractGoblinSlayerCard {
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         this.exhaust=true;
         addToBot(new ApplyPowerAction(abstractPlayer, abstractPlayer, new UndeathPower(abstractPlayer, this.magicNumber), this.magicNumber));
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new LockBlood();
     }
 }

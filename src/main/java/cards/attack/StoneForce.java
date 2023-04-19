@@ -3,6 +3,7 @@ package cards.attack;
 import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class StoneForce extends AbstractGoblinSlayerCard {
-    private static final String ID = "StoneForce";
+    public static final String ID = "StoneForce";
     private static final String img = "ModResources/img/card/Strike.png";
 
 
@@ -44,5 +45,9 @@ public class StoneForce extends AbstractGoblinSlayerCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new StoneForce();
     }
 }

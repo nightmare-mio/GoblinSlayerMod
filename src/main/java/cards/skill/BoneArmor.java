@@ -3,11 +3,12 @@ package cards.skill;
 import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.ExhaustAllEtherealAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BoneArmor extends AbstractGoblinSlayerCard {
-    private static final String ID = "BoneArmor";
+    public static final String ID = "BoneArmor";
     private static final String img = "ModResources/img/card/Strike.png";
 
     public BoneArmor() {
@@ -32,5 +33,9 @@ public class BoneArmor extends AbstractGoblinSlayerCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new GainBlockAction(abstractPlayer, abstractPlayer, this.block));
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new BoneArmor();
     }
 }

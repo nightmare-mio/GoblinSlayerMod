@@ -3,12 +3,13 @@ package cards.attack;
 import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class SleeveArrow extends AbstractGoblinSlayerCard {
-    private static final String ID = "SleeveArrow";
+    public static final String ID = "SleeveArrow";
     private static final String img = "ModResources/img/card/Strike.png";
 
     public SleeveArrow() {
@@ -34,5 +35,9 @@ public class SleeveArrow extends AbstractGoblinSlayerCard {
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
         addToBot(new DamageAction(abstractMonster, new DamageInfo(abstractPlayer, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new SleeveArrow();
     }
 }

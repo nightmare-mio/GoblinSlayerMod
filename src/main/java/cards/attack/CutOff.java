@@ -4,6 +4,7 @@ import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 public class CutOff extends AbstractGoblinSlayerCard {
-    private static final String ID = "CutOff";
+    public static final String ID = "CutOff";
     private static final String img = "ModResources/img/card/Strike.png";
 
     public CutOff() {
@@ -38,5 +39,10 @@ public class CutOff extends AbstractGoblinSlayerCard {
             addToBot(new ApplyPowerAction(abstractMonster, abstractPlayer, new WeakPower(abstractMonster, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             addToBot(new ApplyPowerAction(abstractMonster, abstractPlayer, new VulnerablePower(abstractMonster, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
+    }
+
+    @Override
+    public AbstractCard makeCopy() {
+        return new CutOff();
     }
 }

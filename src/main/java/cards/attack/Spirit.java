@@ -5,13 +5,14 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class Spirit extends AbstractGoblinSlayerCard {
-    private static final String ID = "Spirit";
+    public static final String ID = "Spirit";
     private static final String img = "ModResources/img/card/Strike.png";
 
     public Spirit() {
@@ -36,5 +37,9 @@ public class Spirit extends AbstractGoblinSlayerCard {
         addToBot(new DamageAction(abstractMonster,new DamageInfo(abstractPlayer,this.damage,this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         addToBot(new DrawCardAction(abstractPlayer, 1));
 
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new Spirit();
     }
 }

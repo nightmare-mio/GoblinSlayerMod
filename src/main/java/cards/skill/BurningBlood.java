@@ -3,11 +3,12 @@ package cards.skill;
 import cards.AbstractGoblinSlayerCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BurningBlood extends AbstractGoblinSlayerCard {
-    private static final String ID = "BurningBlood";
+    public static final String ID = "BurningBlood";
     private static final String img = "ModResources/img/card/Strike.png";
 
 
@@ -29,5 +30,9 @@ public class BurningBlood extends AbstractGoblinSlayerCard {
         addToBot(new LoseHPAction(abstractPlayer,abstractPlayer,2));
         addToBot(new DrawCardAction(abstractPlayer,this.magicNumber));
 
+    }
+    @Override
+    public AbstractCard makeCopy() {
+        return new BurningBlood();
     }
 }
